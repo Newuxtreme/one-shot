@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>One-Shot: the AI video editor for fitness coaches</title>
+<meta name="description" content="Record once. Say one shot. Reels, a full YouTube edit, thumbnails, titles, SEO and scheduling, all from one raw video.">
+<meta property="og:title" content="Busy fitness coach paying an editor $1,000 a month? Watch this.">
+<meta property="og:description" content="The AI video editor a full-time fitness coach runs his business on.">
+<meta property="og:image" content="https://newuxtreme.github.io/one-shot/assets/v1_main.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0b0b;--card:#151515;--line:#262626;--text:#ececec;--mute:#9a9a9a;--lime:#39FF14;--red:#FF2D2D}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.6 Inter,system-ui,Arial,sans-serif;padding:0 16px}
+img,video{max-width:100%;display:block}
+.wrap{max-width:980px;margin:0 auto}
+.narrow{max-width:720px;margin:0 auto}
+section{padding:64px 0;border-bottom:1px solid var(--line)}
+h1,h2,.big{font-family:Anton,Impact,"Arial Narrow",sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:1.02;margin:0 0 18px}
+h1{font-size:clamp(42px,8vw,84px)}
+h2{font-size:clamp(32px,5.5vw,54px)}
+h3{font-size:20px;margin:0 0 6px}
+.lime{color:var(--lime)}.red{color:var(--red)}
+.eyebrow{font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);margin-bottom:12px}
+.topbar{text-align:center;font-size:14px;font-weight:600;color:#111;background:var(--lime);margin:0 -16px;padding:9px 16px;padding-top:calc(9px + env(safe-area-inset-top,0px))}
+.prehead{font-size:clamp(18px,2.6vw,22px);font-weight:800;color:var(--red);margin:0 0 10px}
+.sub{font-size:clamp(18px,2.4vw,21px);color:#cfcfcf;max-width:760px}
+.hero{padding-top:44px;text-align:center}
+.hero .sub{margin:0 auto 28px}
+.vsl{position:relative;max-width:380px;margin:0 auto 28px;border-radius:14px;overflow:hidden;border:2px solid var(--line);background:#000;aspect-ratio:9/16}
+.vsl video{width:100%;height:100%;object-fit:cover}
+.vsl .badge{position:absolute;left:10px;top:10px;background:#000c;color:var(--lime);font-size:12px;font-weight:800;padding:5px 9px;border-radius:6px;letter-spacing:.06em}
+.btn{display:inline-block;background:var(--lime);color:#0b0b0b;font-weight:800;font-size:19px;text-decoration:none;padding:18px 30px;border-radius:12px;box-shadow:0 0 0 0 #39ff1466;transition:transform .15s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px #39ff1440}
+.micro{font-size:14px;color:var(--mute);margin-top:12px;max-width:520px;margin-left:auto;margin-right:auto}
+.cta{text-align:center;margin-top:36px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
+.split img{border-radius:14px;border:1px solid var(--line)}
+.pain{list-style:none;padding:0;margin:0}
+.pain li{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--red);border-radius:10px;padding:14px 18px;margin-bottom:10px;font-weight:600}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
+.step .n{font-family:Anton,Impact,sans-serif;font-size:44px;color:var(--lime);line-height:1}
+.gets{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.gets li{padding-left:34px;position:relative}
+.gets li:before{content:"";position:absolute;left:0;top:5px;width:20px;height:20px;border-radius:50%;background:var(--lime);
+ -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='10'/%3E%3Cpath d='M5.5 10.5l3 3 6-7' stroke='white' stroke-width='2.4' fill='none'/%3E%3C/svg%3E") center/contain no-repeat}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:26px 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 10px;text-align:center}
+.stat b{display:block;font-family:Anton,Impact,sans-serif;font-weight:400;font-size:42px;color:var(--lime);line-height:1.05}
+.stat span{font-size:13px;color:var(--mute);font-weight:600}
+.thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.thumbs img{border-radius:10px;aspect-ratio:16/9;object-fit:cover;width:100%}
+.reels{display:grid;grid-template-columns:repeat(2,minmax(0,280px));gap:14px;justify-content:center;margin-top:18px}
+.reels video{border-radius:12px;border:1px solid var(--line);aspect-ratio:9/16;object-fit:cover;width:100%;background:#000}
+.cap{font-size:14px;color:var(--mute);text-align:center;margin-top:12px}
+.map{border-radius:14px;border:1px solid var(--line);margin:22px 0 12px}
+.mm{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
+.mm img{border-radius:12px;border:1px solid var(--line);aspect-ratio:4/5;object-fit:cover;width:100%}
+.pages{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.pages img{border-radius:10px;border:1px solid var(--line);aspect-ratio:9/11;object-fit:cover;object-position:top;width:100%}
+.math{font-size:clamp(20px,3vw,26px);font-weight:600}
+p.big{font-size:clamp(44px,8vw,80px);margin:6px 0 14px}
+.offer{background:var(--card);border:2px solid var(--lime);border-radius:18px;padding:32px}
+.price{font-family:Anton,Impact,sans-serif;font-size:clamp(56px,10vw,88px);line-height:1;margin:18px 0 4px}
+.price small{font-family:Inter,sans-serif;font-size:16px;color:var(--mute);font-weight:600}
+.guarantee{display:flex;gap:18px;align-items:center;background:#0f1a0c;border:1px solid #2b5a1f;border-radius:14px;padding:20px;margin-top:22px}
+.seal{flex:0 0 88px;height:88px;border-radius:50%;border:3px solid var(--lime);display:flex;align-items:center;justify-content:center;text-align:center;font:800 10px/1.15 Inter;color:var(--lime);padding:6px;text-transform:uppercase}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:800;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";color:var(--lime);font-weight:800}
+details[open] summary:after{content:"-"}
+details p{margin:10px 0 0;color:#cfcfcf}
+.disclaimer{max-width:60ch;margin:12px auto 0;font-size:12px;line-height:1.5;opacity:.8}
+footer{text-align:center;color:var(--mute);font-size:14px;padding:36px 0 calc(36px + env(safe-area-inset-bottom,0px))}
+/* exit popup */
+.pop{position:fixed;inset:0;background:#000c;display:flex;align-items:center;justify-content:center;padding:16px;z-index:50}
+.pop .box{background:var(--card);border:2px solid var(--lime);border-radius:18px;max-width:480px;padding:30px;text-align:center;position:relative}
+.pop .x{position:absolute;right:12px;top:8px;background:none;border:0;color:var(--mute);font-size:28px;cursor:pointer}
+.pop .small{display:block;margin-top:16px;color:var(--mute);font-size:15px}
+.pop .small a{color:var(--text)}
+@media (max-width:760px){
+ .split,.steps{grid-template-columns:1fr}
+ .stats{grid-template-columns:repeat(2,1fr)}
+ .stats .stat:last-child{grid-column:span 2}
+ .thumbs{grid-template-columns:repeat(2,1fr)}
+ .pages{grid-template-columns:repeat(2,1fr)}
+ section{padding:48px 0}
+ .btn{width:100%;font-size:18px;padding:17px 18px}
+ .guarantee{flex-direction:column;text-align:center}
+}
+</style>
+<!-- META PIXEL. Replace PIXEL_ID below with the real id from Business Manager. While it says PIXEL_ID nothing is sent to Meta. -->
+<script>
+window.META_PIXEL_ID='PIXEL_ID';
+(function(){
+  if(window.META_PIXEL_ID==='PIXEL_ID'){window.fbq=function(){(window.__fbqQueue=window.__fbqQueue||[]).push([].slice.call(arguments))};return}
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init',window.META_PIXEL_ID);
+})();
+fbq('track','PageView');
+</script>
+</head>
+<body>
+
+<div class="topbar">For busy online fitness coaches who post on YouTube and Instagram</div>
+
+<div class="wrap">
+
+<!-- HERO -->
+<section class="hero">
+  <p class="prehead">Busy fitness coach paying an editor $1,000 a month? Watch this.</p>
+  <h1>Record once. Say <span class="lime" style="white-space:nowrap">"one shot."</span><br>Your week of content is done.</h1>
+  <p class="sub">Reels, a full YouTube edit, thumbnails, titles, SEO and scheduling, all from 1 raw video. Built by a full-time fitness coach who runs his business on it every day.</p>
+  <!-- SWAP: replace this reel with Ketan's demo video once recorded -->
+  <div class="vsl">
+    <span class="badge">MADE BY ONE-SHOT</span>
+    <video src="assets/survive-on-1660.mp4" poster="assets/survive-on-1660.jpg" controls playsinline preload="metadata"></video>
+  </div>
+  <a class="btn" data-cta="hero" href="#offer">Install it for me</a>
+  <p class="micro">90-minute setup call with me. If your first video isn't one-shot by the end of the call, you get every dollar back.</p>
+</section>
+
+<!-- STORY -->
+<section>
+  <div class="split">
+    <div>
+      <div class="eyebrow">Who built this</div>
+      <h2>I don't sell AI. <span class="lime">I coach.</span></h2>
+      <p>I'm Ketan. I run a full-time online coaching business, and I don't have time to edit videos. So I built this for myself.</p>
+      <p>I use it every day and I make it better every day. I made this page so I can send people here when they ask what I use. That's also why it's one plain page and not some fancy website. My time goes into the tool.</p>
+    </div>
+    <img src="assets/orig_b.jpg" alt="Ketan in his kitchen, a thumbnail one-shot made" loading="lazy">
+  </div>
+</section>
+
+<!-- PAIN -->
+<section class="narrow">
+  <div class="eyebrow">What you're done with</div>
+  <h2>The editor <span class="red">tax</span></h2>
+  <ul class="pain">
+    <li>Explaining your idea to an editor, then explaining it again</li>
+    <li>Waiting 8 to 12 hours to hear back on one small change</li>
+    <li>Waiting 3 days for the edit on a trend you shot today</li>
+    <li>30 to 45 minutes a day on a thumbnail with 3 tabs open</li>
+    <li>Another 30 to 45 minutes on YouTube titles, descriptions and tags</li>
+  </ul>
+</section>
+
+<!-- HOW -->
+<section>
+  <div class="eyebrow">How it works</div>
+  <h2>3 steps. You do 2 of them.</h2>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><h3>Record</h3><p>Car, kitchen, gym or studio. Just talk.</p></div>
+    <div class="step"><div class="n">2</div><h3>Say "one shot"</h3><p>Point it at the file. That's the whole command.</p></div>
+    <div class="step"><div class="n">3</div><h3>Go coach</h3><p>It edits, writes, designs and schedules everything at least 2 days out. You get a review page before anything goes live, and you can stop any post.</p></div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET FROM 1 RECORDING -->
+<section class="narrow">
+  <div class="eyebrow">What 1 recording turns into</div>
+  <h2>A whole content week</h2>
+  <ul class="gets">
+    <li>A trial reel and a grid reel in a 4-beat format: a designed cover, a 1 to 3 second hook pulled from your best line, the clip, and an end card with your call to action</li>
+    <li>Your YouTube video, edited: a 30-second montage open, captions, chapters, and an outro that sends viewers to book a call</li>
+    <li>3 title and thumbnail packages, with YouTube's built-in A/B test set up for you</li>
+    <li>A full SEO description with chapters and tags</li>
+    <li>A comment keyword that DMs anyone who comments it</li>
+    <li>Everything scheduled at your best times</li>
+  </ul>
+</section>
+
+<!-- PROOF -->
+<section>
+  <div class="eyebrow">Proof</div>
+  <h2>1 recording. <span class="lime">One-shot.</span></h2>
+  <p>This is my 1660 calorie full day of eating video. One recording became:</p>
+  <div class="stats">
+    <div class="stat"><b>3</b><span>new YouTube edits</span></div>
+    <div class="stat"><b>5</b><span>reels</span></div>
+    <div class="stat"><b>11</b><span>thumbnails</span></div>
+    <div class="stat"><b>9</b><span>titles, scored 91 to 98</span></div>
+    <div class="stat"><b>3</b><span>weeks of posts scheduled</span></div>
+  </div>
+  <div class="thumbs">
+    <img src="assets/v1_main.jpg" alt="Thumbnail: 1660 calories" loading="lazy">
+    <img src="assets/v2_main.jpg" alt="Thumbnail: already failed" loading="lazy">
+    <img src="assets/v3_main.jpg" alt="Thumbnail: lost a decade" loading="lazy">
+    <img src="assets/v1_ab3.jpg" alt="Thumbnail: 2 tricks" loading="lazy">
+    <img src="assets/v2_ab2.jpg" alt="Thumbnail: always hungry" loading="lazy">
+    <img src="assets/v3_ab3.jpg" alt="Thumbnail: 10 years gone" loading="lazy">
+  </div>
+  <div class="reels">
+    <video src="assets/survive-on-1660.mp4" poster="assets/survive-on-1660.jpg" controls playsinline preload="none"></video>
+    <video src="assets/diet-already-failed.mp4" poster="assets/diet-already-failed.jpg" controls playsinline preload="none"></video>
+  </div>
+  <p class="cap">Every thumbnail and reel here was made by one-shot from that 1 recording.</p>
+  <div class="cta"><a class="btn" data-cta="proof" href="#offer">Install it for me</a></div>
+</section>
+
+<!-- BRAIN -->
+<section>
+  <div class="eyebrow">Under the hood</div>
+  <h2>6 months of work <span class="lime">you skip</span></h2>
+  <p>About 6 months ago I had never opened Claude Code. Since then, every course I paid for and every lesson from running my business went into a brain that sits behind this editor. 343 pages, all linked to each other.</p>
+  <ul class="gets">
+    <li>The YouTube side is built on the principles of Ali Abdaal's Part-Time YouTuber Academy: hooks, titles, thumbnails, and how to keep people watching</li>
+    <li>The business side is built on the principles from over $30,000 I've invested in fitness coaching masterminds: Bedros Keuilian's mastermind, Vince Del Monte's 7-Figure Mastermind, and Dr. Matt Shiver's Growth Accelerator</li>
+    <li>Every caption gets checked against my ideal client research before it's written</li>
+  </ul>
+  <div class="mm">
+    <img src="assets/mm-1.jpg" alt="Ketan at a fitness business mastermind" loading="lazy">
+    <img src="assets/mm-2.jpg" alt="Ketan at Vince Del Monte's 7-Figure Mastermind" loading="lazy">
+    <img src="assets/mm-3.jpg" alt="Ketan at a fitness business mastermind" loading="lazy">
+  </div>
+  <p class="cap">Some of the rooms I paid to be in.</p>
+  <img class="map" src="assets/brain-map.png" alt="Map of the brain: every dot is a page, every line is a link between pages" loading="lazy">
+  <div class="pages">
+    <img src="assets/page-hives.jpg" alt="Brain page: HIVES framework" loading="lazy">
+    <img src="assets/page-earn-click.jpg" alt="Brain page: Earn the click" loading="lazy">
+    <img src="assets/page-ica.jpg" alt="Brain page: ideal client" loading="lazy">
+    <img src="assets/page-business.jpg" alt="Brain page: business foundations" loading="lazy">
+  </div>
+  <p class="cap">Real pages from my brain. Blurred, because that part stays mine.</p>
+</section>
+
+<!-- MATH -->
+<section class="narrow" style="text-align:center">
+  <div class="eyebrow">The math</div>
+  <p class="math">An editor at $1,000 a month is</p>
+  <p class="big red">$12,000 a year</p>
+  <p class="math">One-shot is $2,997, once. It pays for itself in 3 months, and it never makes you wait until tomorrow.</p>
+</section>
+
+<!-- OFFER -->
+<section class="narrow" id="offer">
+  <div class="offer">
+    <div class="eyebrow">What you get</div>
+    <ul class="gets">
+      <li>One-shot installed on your computer by me, on a 90-minute call</li>
+      <li>Set up for your brand: your name, your voice, your audience, your call to action</li>
+      <li>Your first video one-shot live on the call, on your own footage</li>
+      <li>Everything inside it: reels, YouTube edits, thumbnails, SEO, A/B tests, scheduling</li>
+      <li>Extra 60-minute calls with me whenever you want them, $297 each</li>
+    </ul>
+    <div class="price">$2,997 <small>one time. No monthly fee from me.</small></div>
+    <div class="cta" style="margin-top:20px"><a class="btn" data-cta="offer" href="https://buy.stripe.com/14A28r0Fs8003LvgPVfAc0d">Install it for me: $2,997</a></div>
+    <p class="micro" style="text-align:center">After you pay, you pick your setup call time straight away.</p>
+    <div class="guarantee">
+      <div class="seal">Setup<br>guarantee</div>
+      <div><b>If your first video isn't one-shot by the end of our call, I refund every dollar.</b> No back-and-forth. I do every setup call myself, so I only take a few each week.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="narrow">
+  <div class="eyebrow">Questions</div>
+  <h2>Before you buy</h2>
+  <details><summary>Do I need to be technical?</summary><p>No. I install everything on the call. If you can record a video and type one sentence, you can use it.</p></details>
+  <details><summary>What else do I need?</summary><p>A computer, a Claude subscription and a couple of tool accounts for thumbnails and scheduling. Expect about $60 to $140 a month for those tools, depending on how many videos you make. I'll send you the exact list before the call.</p></details>
+  <details><summary>Will it sound like me?</summary><p>Yes. On the call we load your voice, audience and offer into it. Every caption and title gets written in your words, then checked so it doesn't read like AI.</p></details>
+  <details><summary>What kind of videos does it work on?</summary><p>Talking to camera, gym footage, podcasts, client testimonials and story reels.</p></details>
+  <details><summary>Can I check things before they post?</summary><p>Yes. Everything is scheduled at least 2 days out and you get a review page first. Say stop and it pulls the post.</p></details>
+  <details><summary>What if Instagram or YouTube changes something?</summary><p>Book a 60-minute follow-up call and I'll update your setup.</p></details>
+  <details><summary>Why one time and not a subscription?</summary><p>I'd rather you own it.</p></details>
+</section>
+
+<!-- FINAL -->
+<section style="text-align:center;border-bottom:0">
+  <h2>Record it. Say one shot.<br><span class="lime">Go coach.</span></h2>
+  <a class="btn" data-cta="final" href="https://buy.stripe.com/14A28r0Fs8003LvgPVfAc0d">Install it for me: $2,997</a>
+  <p class="micro">Setup guarantee: your first video is one-shot on the call, or you get every dollar back.</p>
+</section>
+
+<footer>Ketan, IntellectualMuscle. Questions? DM @intellectual.muscle on Instagram.<p class="disclaimer">The results on this page are from my own business. Your results depend on your content, how often you record and how you use the tool. I can't promise a specific number of views, clients or dollars.</p></footer>
+</div>
+
+<!-- EXIT POPUP: only for people who try to leave without buying -->
+<div class="pop" id="pop" hidden>
+  <div class="box" role="dialog" aria-label="Live demo offer">
+    <button class="x" aria-label="Close" onclick="closePop()">&times;</button>
+    <div class="eyebrow">Not ready yet?</div>
+    <h2 style="font-size:36px">Watch it run on <span class="lime">your</span> footage first</h2>
+    <p>90-minute live demo on your own video, plus a content plan. $997, and the whole $997 comes off the install if you upgrade within 14 days.</p>
+    <a class="btn" data-cta="demo" href="https://buy.stripe.com/6oU7sL73Q2FG81L0QXfAc0e">Book the live demo: $997</a>
+    <span class="small">Just have a few questions? <a data-cta="qa" href="https://buy.stripe.com/3cI28r3RE0xyfudarxfAc0f">30-minute Q&amp;A call, $297</a></span>
+  </div>
+</div>
+
+<script>
+(function(){
+  var KEY='os_pop_seen', pop=document.getElementById('pop'), clickedBuy=false, start=Date.now(), maxY=0;
+  function seen(){try{return sessionStorage.getItem(KEY)}catch(e){return null}}
+  function mark(){try{sessionStorage.setItem(KEY,'1')}catch(e){}}
+  function show(){ if(clickedBuy||seen()||Date.now()-start<15000) return; pop.hidden=false; mark(); }
+  window.closePop=function(){pop.hidden=true};
+  pop.addEventListener('click',function(e){if(e.target===pop) closePop()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape') closePop()});
+  // desktop: mouse heads for the tab bar or close button
+  document.addEventListener('mouseout',function(e){ if(!e.relatedTarget && e.clientY<10) show(); });
+  // phone: fast scroll back up after reading a good chunk of the page
+  window.addEventListener('scroll',function(){
+    var y=window.scrollY; if(y>maxY) maxY=y;
+    if(maxY>1800 && maxY-y>900) show();
+  },{passive:true});
+  // buy clicks: Meta InitiateCheckout + exit-popup memory
+  var VALUE={hero:2997,proof:2997,offer:2997,final:2997,demo:997,qa:297};
+  document.querySelectorAll('[data-cta]').forEach(function(a){
+    a.addEventListener('click',function(){
+      var c=a.dataset.cta, toStripe=a.href.indexOf('buy.stripe.com')>-1;
+      if(toStripe){
+        if(c!=='demo'&&c!=='qa') clickedBuy=true;
+        try{fbq('track','InitiateCheckout',{value:VALUE[c]||2997,currency:'USD',content_name:c})}catch(e){}
+      }
+      window.onCTAClick&&window.onCTAClick(c);
+    });
+  });
+})();
+</script>
+</body>
+</html>

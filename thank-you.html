@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Payment received: pick your time</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0b0b;--card:#151515;--line:#262626;--text:#ececec;--mute:#9a9a9a;--lime:#39FF14;--red:#FF2D2D}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.6 Inter,system-ui,Arial,sans-serif;padding:0 16px}
+.wrap{max-width:640px;margin:0 auto;padding:56px 0 calc(56px + env(safe-area-inset-bottom,0px));text-align:center}
+h1{font-family:Anton,Impact,"Arial Narrow",sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:1.02;font-size:clamp(44px,10vw,76px);margin:0 0 14px}
+.lime{color:var(--lime)}
+.tick{width:84px;height:84px;border-radius:50%;background:var(--lime);margin:0 auto 22px;display:flex;align-items:center;justify-content:center}
+.tick svg{width:44px;height:44px}
+.eyebrow{font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);margin-bottom:10px}
+.sub{font-size:19px;color:#cfcfcf;margin:0 auto 30px;max-width:520px}
+.btn{display:block;background:var(--lime);color:#0b0b0b;font-weight:800;font-size:22px;text-decoration:none;padding:22px 24px;border-radius:14px;box-shadow:0 0 0 0 #39ff1466;transition:transform .15s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px #39ff1440}
+.micro{font-size:14px;color:var(--mute);margin-top:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-top:30px;text-align:left;font-size:16px}
+.card b{color:var(--text)}
+.choose .btn{font-size:18px;padding:16px 18px;margin-bottom:10px}
+footer{color:var(--mute);font-size:14px;margin-top:36px}
+</style>
+<!-- META PIXEL. Replace PIXEL_ID below with the real id from Business Manager. While it says PIXEL_ID nothing is sent to Meta. -->
+<script>
+window.META_PIXEL_ID='PIXEL_ID';
+(function(){
+  if(window.META_PIXEL_ID==='PIXEL_ID'){window.fbq=function(){(window.__fbqQueue=window.__fbqQueue||[]).push([].slice.call(arguments))};return}
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init',window.META_PIXEL_ID);
+})();
+fbq('track','PageView');
+</script>
+</head>
+<body>
+<div class="wrap">
+  <div class="tick"><svg viewBox="0 0 44 44" fill="none" stroke="#0b0b0b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 23l9 9 16-19"/></svg></div>
+  <div class="eyebrow">Step 1 of 2 done</div>
+  <h1>Payment <span class="lime">received</span></h1>
+  <p class="sub" id="sub">Thank you. One last step: pick the time that works for you.</p>
+
+  <div id="main" hidden>
+    <a class="btn" id="book" href="#">Pick your call time</a>
+    <p class="micro" id="micro">Takes 30 seconds. You'll get a calendar invite and an email with everything you need.</p>
+  </div>
+
+  <div id="choose" class="choose" hidden>
+    <p class="sub" style="margin-bottom:18px">Which one did you pay for?</p>
+    <a class="btn" href="#" data-t="install">One-Shot install (90 min)</a>
+    <a class="btn" href="#" data-t="demo">Live demo (90 min)</a>
+    <a class="btn" href="#" data-t="qa">Q&amp;A call (30 min)</a>
+    <a class="btn" href="#" data-t="followup">Follow-up call (60 min)</a>
+  </div>
+
+  <div class="card" id="card" hidden></div>
+  <footer>Ketan, IntellectualMuscle. Can't find your invite? DM @intellectual.muscle on Instagram.</footer>
+</div>
+
+<script>
+(function(){
+  // One entry per product. book = Calendly page, value = what Meta counts as the Purchase.
+  var TIERS={
+    install:{name:'One-Shot install',value:2997,mins:90,
+      book:'https://calendly.com/intellectualmuscle/one-shot-setup-call',
+      note:'<b>Before the call:</b> have your computer ready and be somewhere quiet. I will install it with you and one-shot your first video live.'},
+    demo:{name:'Live demo',value:997,mins:90,
+      book:'https://calendly.com/intellectualmuscle/one-shot-live-demo',
+      note:'<b>Before the call:</b> have 1 raw video of yours ready. We run it live. Your $997 comes off the install if you upgrade within 14 days.'},
+    qa:{name:'Q&A call',value:297,mins:30,
+      book:'https://calendly.com/intellectualmuscle/one-shot-q-a',
+      note:'<b>Before the call:</b> write down your questions so we use all 30 minutes.'},
+    followup:{name:'Follow-up call',value:297,mins:60,
+      book:'https://calendly.com/intellectualmuscle/one-shot-follow-up-call',
+      note:'<b>Before the call:</b> note what you want updated or fixed.'}
+  };
+  var q=new URLSearchParams(location.search), key=(q.get('tier')||'').toLowerCase(), sid=q.get('session_id')||'';
+  var tier=TIERS[key];
+
+  // Purchase fires once, and only when Stripe sent a real checkout id. Opening this page by hand counts for nothing.
+  if(tier && /^cs_/.test(sid)){
+    var mark='os_purchase_'+sid, done=false;
+    try{done=!!localStorage.getItem(mark)}catch(e){}
+    if(!done){
+      try{fbq('track','Purchase',{value:tier.value,currency:'USD',content_name:tier.name},{eventID:sid})}catch(e){}
+      try{localStorage.setItem(mark,'1')}catch(e){}
+    }
+  }
+
+  function show(t){
+    document.getElementById('book').href=t.book;
+    document.getElementById('book').textContent='Pick your '+t.mins+'-minute call time';
+    var c=document.getElementById('card'); c.innerHTML=t.note; c.hidden=false;
+    document.getElementById('main').hidden=false;
+  }
+  window.__tyShow=function(k){if(!TIERS[k])return;show(TIERS[k]);document.getElementById('choose').hidden=true};
+  if(tier){show(tier)}
+  else{
+    document.getElementById('sub').textContent='Thank you. One last step: pick your call time.';
+    var box=document.getElementById('choose'); box.hidden=false;
+    box.querySelectorAll('[data-t]').forEach(function(a){a.href=TIERS[a.dataset.t].book});
+  }
+})();
+</script>
+</body>
+</html>
