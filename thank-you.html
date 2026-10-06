@@ -4,28 +4,37 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
-<title>Payment received: pick your time</title>
+<title>Payment received: book your call</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#0b0b0b;--card:#151515;--line:#262626;--text:#ececec;--mute:#9a9a9a;--lime:#39FF14;--red:#FF2D2D}
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 body{margin:0;background:var(--bg);color:var(--text);font:17px/1.6 Inter,system-ui,Arial,sans-serif;padding:0 16px}
-.wrap{max-width:640px;margin:0 auto;padding:56px 0 calc(56px + env(safe-area-inset-bottom,0px));text-align:center}
-h1{font-family:Anton,Impact,"Arial Narrow",sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:1.02;font-size:clamp(44px,10vw,76px);margin:0 0 14px}
+.wrap{max-width:600px;margin:0 auto;padding:44px 0 calc(48px + env(safe-area-inset-bottom,0px));text-align:center}
+h1{font-family:Anton,Impact,"Arial Narrow",sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:1.02;font-size:clamp(42px,11vw,72px);margin:0 0 12px}
 .lime{color:var(--lime)}
-.tick{width:84px;height:84px;border-radius:50%;background:var(--lime);margin:0 auto 22px;display:flex;align-items:center;justify-content:center}
-.tick svg{width:44px;height:44px}
-.eyebrow{font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);margin-bottom:10px}
-.sub{font-size:19px;color:#cfcfcf;margin:0 auto 30px;max-width:520px}
-.btn{display:block;background:var(--lime);color:#0b0b0b;font-weight:800;font-size:22px;text-decoration:none;padding:22px 24px;border-radius:14px;box-shadow:0 0 0 0 #39ff1466;transition:transform .15s,box-shadow .2s}
-.btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px #39ff1440}
-.micro{font-size:14px;color:var(--mute);margin-top:14px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-top:30px;text-align:left;font-size:16px}
+.tick{width:72px;height:72px;border-radius:50%;background:var(--lime);margin:0 auto 18px;display:flex;align-items:center;justify-content:center}
+.tick svg{width:38px;height:38px}
+.eyebrow{font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);margin-bottom:8px}
+.sub{font-size:18px;color:#cfcfcf;margin:0 auto 22px;max-width:500px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;text-align:left;font-size:16px;display:grid;gap:8px}
+.card p{margin:0}
 .card b{color:var(--text)}
-.choose .btn{font-size:18px;padding:16px 18px;margin-bottom:10px}
-footer{color:var(--mute);font-size:14px;margin-top:36px}
+.book{margin-top:34px;border:2px solid var(--lime);border-radius:18px;padding:24px 18px;background:#0f1a0c}
+.book .label{font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--lime)}
+.book h2{font-family:Anton,Impact,"Arial Narrow",sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(34px,9vw,52px);line-height:1.02;margin:6px 0 10px}
+.book .why{color:#d6d6d6;margin:0 auto 20px;max-width:460px}
+.btn{display:block;background:var(--lime);color:#0b0b0b;font-weight:800;font-size:21px;text-decoration:none;padding:20px 20px;border-radius:14px;transition:transform .15s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px #39ff1440}
+.btn:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.choose{display:grid;gap:10px}
+.choose .btn{font-size:18px;padding:16px 18px}
+.micro{font-size:14px;color:var(--mute);margin:12px 0 0}
+footer{color:var(--mute);font-size:14px;margin-top:30px}
+@media (prefers-reduced-motion:reduce){.btn{transition:none}}
 </style>
 <!-- META PIXEL. Replace PIXEL_ID below with the real id from Business Manager. While it says PIXEL_ID nothing is sent to Meta. -->
 <script>
@@ -43,22 +52,26 @@ fbq('track','PageView');
   <div class="tick"><svg viewBox="0 0 44 44" fill="none" stroke="#0b0b0b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 23l9 9 16-19"/></svg></div>
   <div class="eyebrow">Step 1 of 2 done</div>
   <h1>Payment <span class="lime">received</span></h1>
-  <p class="sub" id="sub">Thank you. One last step: pick the time that works for you.</p>
-
-  <div id="main" hidden>
-    <a class="btn" id="book" href="#">Pick your call time</a>
-    <p class="micro" id="micro">Takes 30 seconds. You'll get a calendar invite and an email with everything you need.</p>
-  </div>
-
-  <div id="choose" class="choose" hidden>
-    <p class="sub" style="margin-bottom:18px">Which one did you pay for?</p>
-    <a class="btn" href="#" data-t="install">One-Shot install (90 min)</a>
-    <a class="btn" href="#" data-t="demo">Live demo (90 min)</a>
-    <a class="btn" href="#" data-t="qa">Q&amp;A call (30 min)</a>
-    <a class="btn" href="#" data-t="followup">Follow-up call (60 min)</a>
-  </div>
+  <p class="sub">Thank you. Your receipt is on its way to your inbox.</p>
 
   <div class="card" id="card" hidden></div>
+
+  <section class="book" id="bookbox" aria-labelledby="bookh">
+    <div class="label">Last step</div>
+    <h2 id="bookh">Book your call here</h2>
+    <p class="why" id="why">Your call is not booked until you pick a time on my calendar. Tap the button and choose a time that works for you.</p>
+    <div id="main" hidden>
+      <a class="btn" id="book" href="#">Book my call</a>
+    </div>
+    <div id="choose" class="choose" hidden>
+      <a class="btn" href="#" data-t="install">One-Shot install (90 min)</a>
+      <a class="btn" href="#" data-t="demo">Live demo (90 min)</a>
+      <a class="btn" href="#" data-t="qa">Q&amp;A call (30 min)</a>
+      <a class="btn" href="#" data-t="followup">Follow-up call (60 min)</a>
+    </div>
+    <p class="micro">Opens my calendar. Takes 30 seconds. The invite lands in your email.</p>
+  </section>
+
   <footer>Ketan, IntellectualMuscle. Can't find your invite? DM @intellectual.muscle on Instagram.</footer>
 </div>
 
@@ -68,7 +81,7 @@ fbq('track','PageView');
   var TIERS={
     install:{name:'One-Shot install',value:2997,mins:90,
       book:'https://calendly.com/intellectualmuscle/one-shot-setup-call',
-      note:'<b>Before the call:</b> have your computer ready and be somewhere quiet. I will install it with you and one-shot your first video live.'},
+      note:'<b>Before the call:</b> have your computer ready and be somewhere quiet. I&#39;ll install it with you and one-shot your first video live.'},
     demo:{name:'Live demo',value:997,mins:90,
       book:'https://calendly.com/intellectualmuscle/one-shot-live-demo',
       note:'<b>Before the call:</b> have 1 raw video of yours ready. We run it live. Your $997 comes off the install if you upgrade within 14 days.'},
@@ -93,15 +106,16 @@ fbq('track','PageView');
   }
 
   function show(t){
-    document.getElementById('book').href=t.book;
-    document.getElementById('book').textContent='Pick your '+t.mins+'-minute call time';
-    var c=document.getElementById('card'); c.innerHTML=t.note; c.hidden=false;
+    var b=document.getElementById('book');
+    b.href=t.book; b.textContent='Book my '+t.mins+'-minute call';
+    var c=document.getElementById('card');
+    c.innerHTML='<p><b>You bought:</b> '+t.name+', a '+t.mins+'-minute call with me.</p><p>'+t.note+'</p>';
+    c.hidden=false;
     document.getElementById('main').hidden=false;
   }
-  window.__tyShow=function(k){if(!TIERS[k])return;show(TIERS[k]);document.getElementById('choose').hidden=true};
   if(tier){show(tier)}
   else{
-    document.getElementById('sub').textContent='Thank you. One last step: pick your call time.';
+    document.getElementById('why').textContent='Your call is not booked until you pick a time on my calendar. Tap the one you paid for and choose a time.';
     var box=document.getElementById('choose'); box.hidden=false;
     box.querySelectorAll('[data-t]').forEach(function(a){a.href=TIERS[a.dataset.t].book});
   }
