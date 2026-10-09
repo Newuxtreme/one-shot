@@ -80,19 +80,19 @@ fbq('track','PageView');
 
 <script>
 (function(){
-  // One entry per product. book = Calendly page, value = what Meta counts as the Purchase.
+  // One entry per product. book = Cal.com page, value = what Meta counts as the Purchase.
   var TIERS={
     install:{name:'One-Shot install',value:2997,mins:90,
-      book:'https://calendly.com/intellectualmuscle/one-shot-setup-call',
+      book:'https://cal.com/intellectual-muscle/one-shot-setup-call',
       note:'<b>Before the call:</b> have your computer ready and be somewhere quiet. I&#39;ll install it with you and one-shot your first video live.'},
     demo:{name:'Live demo',value:997,mins:90,
-      book:'https://calendly.com/intellectualmuscle/one-shot-live-demo',
+      book:'https://cal.com/intellectual-muscle/one-shot-live-demo',
       note:'<b>Before the call:</b> have 1 raw video of yours ready. We run it live. Your $997 comes off the install if you upgrade within 14 days.'},
     qa:{name:'Q&A call',value:297,mins:30,
-      book:'https://calendly.com/intellectualmuscle/one-shot-q-a',
+      book:'https://cal.com/intellectual-muscle/one-shot-q-a',
       note:'<b>Before the call:</b> write down your questions so we use all 30 minutes.'},
     followup:{name:'Follow-up call',value:297,mins:60,
-      book:'https://calendly.com/intellectualmuscle/one-shot-follow-up-call',
+      book:'https://cal.com/intellectual-muscle/one-shot-follow-up-call',
       note:'<b>Before the call:</b> note what you want updated or fixed.'}
   };
   var q=new URLSearchParams(location.search), key=(q.get('tier')||'').toLowerCase(), sid=q.get('session_id')||'';
